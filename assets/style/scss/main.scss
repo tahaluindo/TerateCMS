@@ -1,0 +1,69 @@
+/*================================================================================
+   Notes: This file is the main entry point for the SCSS stylesheet.
+  ================================================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap");
+html,
+body {
+  height: 100%;
+}
+
+#__nuxt {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+// svg.icon{
+//   width: 1.3rem;
+//   height: 1.3rem;
+//   vertical-align: middle;
+//   fill: currentColor;
+//   overflow: hidden;
+// }
+
+code {
+  color: rgb(233, 74, 74);
+  background-color: rgba(146, 146, 146, 0.1);
+}
+
+// Custom Form SCSS
+@import "./custom/form";
+
+// Custom App SCSS
+@import "./custom/apps/products";
+
+// Custom Component SCSS
+@import "./custom/component/button";
+@import "./custom/component/collapse";
+@import "./custom/component/modal";
+@import "./custom/component/tableAdvanced";
+
+// Custom Layout SCSS
+@import "./custom/layout/vertical";
+@import "./custom/layout/horizontal";
+
+// Transition SCSS
+@import "./custom/transition/page";
+@import "./custom/transition/fade";
+@import "./custom/transition/fade-up";
+@import "./custom/transition/slide";
+@import "./custom/transition/slide-fade";
+
+// Scrollbar SCSS
+@import "./custom/scrollbar/scrollbar";
+
+// Custom SCSS library
+@import "./custom/library/apexchart";
+@import "./custom/library/dropdown";
+@import "./custom/library/nprogress";
+@import "./custom/library/simplepasswordmeter";
+@import "./custom/library/vueselect";
+@import "./custom/library/formkit";
+@import "./custom/library/vuetoastification";
+@import "./custom/library/swiper";
+@import "./custom/library/fullcalendar";
+@import "./custom/library/floatingvue";
+@import "./custom/custom-tailwind.scss";

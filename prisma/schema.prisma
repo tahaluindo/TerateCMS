@@ -1,0 +1,101 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["extendedWhereUnique"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model audit {
+  auditID          Int       @id @default(autoincrement())
+  auditIP          String?   @db.VarChar(255)
+  auditURL         String?   @db.VarChar(255)
+  auditURLMethod   String?   @db.VarChar(255)
+  auditURLPayload  String?   @db.VarChar(255)
+  auditCreatedDate DateTime? @db.DateTime(0)
+}
+
+model user {
+  userID           Int        @id @default(autoincrement())
+  userSecretKey    String?    @db.VarChar(255)
+  userUsername     String?    @db.VarChar(255)
+  userPassword     String?    @db.VarChar(255)
+  userFullName     String?    @db.VarChar(255)
+  userEmail        String?    @db.VarChar(255)
+  userPhone        String?    @db.VarChar(255)
+  userStatus       String?    @db.VarChar(255)
+  userCreatedDate  DateTime?  @db.DateTime(0)
+  userModifiedDate DateTime?  @db.DateTime(0)
+  store            store[]
+  userrole         userrole[]
+}
+
+model role {
+  roleID           Int        @id @default(autoincrement())
+  roleName         String?    @db.VarChar(255)
+  roleDescription  String?    @db.VarChar(255)
+  roleStatus       String?    @db.VarChar(255)
+  roleCreatedDate  DateTime?  @db.DateTime(0)
+  roleModifiedDate DateTime?  @db.DateTime(0)
+  userrole         userrole[]
+}
+
+model lookup {
+  lookupID           Int       @id @default(autoincrement())
+  lookupOrder        Int?
+  lookupTitle        String?   @db.VarChar(255)
+  lookupRefCode      String?   @db.VarChar(255)
+  lookupValue        String?   @db.VarChar(255)
+  lookupType         String?   @db.VarChar(255)
+  lookupStatus       String?   @db.VarChar(255)
+  lookupCreatedDate  DateTime? @db.DateTime(0)
+  lookupModifiedDate DateTime? @db.DateTime(0)
+}
+
+model userrole {
+  userRoleID          Int      @id @default(autoincrement())
+  userRoleUserID      Int      @default(0)
+  userRoleRoleID      Int      @default(0)
+  userRoleCreatedDate DateTime @db.DateTime(0)
+  role                role     @relation(fields: [userRoleRoleID], references: [roleID], onDelete: NoAction, onUpdate: NoAction, map: "FK_userrole_role")
+  user                user     @relation(fields: [userRoleUserID], references: [userID], onDelete: NoAction, onUpdate: NoAction, map: "FK_userrole_user")
+
+  @@index([userRoleRoleID], map: "FK_userrole_role")
+  @@index([userRoleUserID], map: "FK_userrole_user")
+}
+
+model page {
+  pageID           Int           @id @default(autoincrement())
+  pageKey          String?       @db.VarChar(255)
+  pageTitle        String?       @db.VarChar(255)
+  pageName         String?       @db.VarChar(255)
+  pageURL          String?       @unique(map: "pageURL") @db.VarChar(255)
+  pageCreatedDate  String?       @db.VarChar(255)
+  pageModifiedDate String?       @db.VarChar(255)
+  pagecontent      pagecontent[]
+}
+
+model pagecontent {
+  pageContentID           Int       @id @default(autoincrement())
+  pageContentCode         String?   @db.LongText
+  pageContentCreatedDate  DateTime? @db.DateTime(0)
+  pageContentModifiedDate DateTime? @db.DateTime(0)
+  pageContentPageID       Int?
+  page                    page?     @relation(fields: [pageContentPageID], references: [pageID], onDelete: NoAction, onUpdate: NoAction, map: "FK__page")
+
+  @@index([pageContentPageID], map: "FK__page")
+}
+
+model store {
+  storeID           Int       @id @default(autoincrement())
+  storeName         String?   @db.VarChar(255)
+  storeDescription  String?   @db.VarChar(255)
+  storeCreatedDate  DateTime? @db.DateTime(0)
+  storeModifiedDate DateTime? @db.DateTime(0)
+  storeUserID       Int?
+  user              user?     @relation(fields: [storeUserID], references: [userID], onDelete: NoAction, onUpdate: NoAction, map: "FK_store_user")
+
+  @@index([storeUserID], map: "FK_store_user")
+}

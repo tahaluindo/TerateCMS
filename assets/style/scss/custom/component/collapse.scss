@@ -1,0 +1,54 @@
+.rs-collapse-group {
+  .rs-collapse-header {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 50%;
+      right: 0%;
+      transform: translate(-100%, -50%) rotate(0deg);
+      background: url("@/assets/img/icon/chevron-right.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: 0.25s ease-in-out;
+    }
+  }
+}
+
+.dark .rs-collapse-group {
+  .rs-collapse-header {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 50%;
+      right: 0%;
+      transform: translate(-100%, -50%) rotate(0deg);
+      background: url("@/assets/img/icon/chevron-right-dark.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: 0.25s ease-in-out;
+    }
+  }
+}
+
+.rs-collapse-group--open {
+  .rs-collapse-header {
+    &::after {
+      transform: translate(-100%, -50%) rotate(90deg);
+    }
+  }
+}
+
+.dark .rs-collapse-group--open {
+  .rs-collapse-header {
+    &::after {
+      transform: translate(-100%, -50%) rotate(90deg);
+    }
+  }
+}

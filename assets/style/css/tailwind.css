@@ -1,0 +1,95 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components {
+  .icon-btn {
+    @apply flex
+            items-center
+            justify-center
+            transition-colors
+            text-gray-500
+            dark:text-gray-300
+            duration-300;
+  }
+
+  .icon-btn:hover {
+    @apply bg-slate-200
+            dark:bg-slate-700;
+  }
+
+  h1 {
+    @apply text-4xl
+            font-bold;
+  }
+
+  h2 {
+    @apply text-3xl
+            font-bold;
+  }
+
+  h3 {
+    @apply text-2xl
+            font-bold;
+  }
+
+  h4 {
+    @apply text-xl
+            font-bold;
+  }
+
+  h5 {
+    @apply text-lg
+            font-bold;
+  }
+
+  h6 {
+    @apply text-base
+            font-bold;
+  }
+
+  /* Collapse Component */
+
+  .rs-collapse {
+    @apply dark:border-slate-700;
+  }
+
+  .rs-collapse-group {
+    @apply overflow-hidden duration-300 dark:border-slate-700;
+  }
+
+  .rs-collapse-header {
+    @apply text-lg font-medium px-5 pr-10 py-4 cursor-pointer;
+  }
+
+  .rs-collapse-body {
+    @apply px-5 pb-4 pt-2;
+  }
+
+  /* Table Component */
+  .table-wrapper {
+    @apply w-full border-0 rounded-md border-gray-200 dark:border-slate-700;
+  }
+
+  .table-header {
+    @apply m-4;
+  }
+
+  .table-header-filter {
+    @apply flex flex-col md:flex-row justify-start md:justify-between items-start md:items-center gap-4;
+  }
+
+  .table-content {
+    @apply w-full;
+  }
+
+  .table-footer {
+    @apply flex justify-center md:justify-between items-center m-4;
+  }
+
+  .table-footer-page {
+    @apply flex justify-center gap-x-2;
+  }
+}

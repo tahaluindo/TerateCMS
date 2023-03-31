@@ -1,0 +1,8 @@
+// Dark Mode Support
+.dark {
+  .vue-apexcharts {
+    .apexcharts-yaxis {
+      color: white !important; 
+    }
+  }
+}

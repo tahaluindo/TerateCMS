@@ -1,0 +1,20 @@
+$small: 640px;
+$medium: 768px;
+$large: 1024px;
+$xlarge: 1280px;
+
+.modal {
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 1000;
+}
+.modal-dialog {
+  position: relative;
+  margin: 1.75rem auto;
+  z-index: 9999;
+}
+
+@media screen and (max-width: $medium) {
+  .modal-dialog {
+    margin: 1.75rem 1rem;
+  }
+}

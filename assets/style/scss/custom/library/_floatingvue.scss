@@ -1,0 +1,19 @@
+.v-popper--theme-dropdown .v-popper__inner {
+  color: inherit !important;
+}
+
+// Disable arrow
+.v-popper__arrow-container {
+  display: none;
+}
+
+// Dark Mode Support
+.dark {
+  .v-popper--theme-dropdown .v-popper__inner {
+    background: #1e293b;
+    color: #0f172a;
+    border-radius: 6px;
+    border: 1px solid #1e293b;
+    box-shadow: 0 6px 30px #0f172a;
+  }
+}

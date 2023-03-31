@@ -1,0 +1,103 @@
+$small: 640px;
+$medium: 768px;
+$large: 1024px;
+$xlarge: 1280px;
+
+@media screen and (max-width: $medium) {
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    height: 120vh;
+    z-index: 45;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: rgba(34, 41, 47, 0.5);
+    left: 0;
+    right: 0;
+  }
+
+  .menu-overlay {
+    &.hide {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+// Layout Vertical CSS
+.v-layout {
+  .content-page {
+    height: 100%;
+  }
+
+  .w-header-search {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 64px;
+  }
+
+  .w-header,
+  .w-header-search {
+    width: calc(100% - 256px);
+
+    @media screen and (max-width: $medium) {
+      width: 100%;
+    }
+  }
+
+  .vertical-menu {
+    left: 0;
+  }
+
+  .content-page {
+    margin-left: 256px;
+    padding: 6rem 2rem 10px 2rem;
+
+    @media screen and (max-width: $medium) {
+      margin-left: 0px;
+      padding: 6rem 1.25rem 0 1.25rem;
+    }
+  }
+
+  &.menu-hide {
+    .w-header {
+      width: calc(100% - 0px);
+    }
+
+    .vertical-menu {
+      left: -260px;
+    }
+
+    .content-page {
+      margin-left: 0;
+    }
+  }
+
+  .menu-content,
+  .menu-content-child {
+    max-height: 1000px;
+    overflow: hidden;
+
+    &.hide {
+      max-height: 0px;
+    }
+  }
+
+  .menu-content-max,
+  .menu-content-child-max {
+    max-height: 100vh;
+  }
+
+  svg.side-menu-arrow {
+    transition: 0.25s ease-in-out;
+  }
+
+  .nav-open {
+    svg.side-menu-arrow {
+      transform: rotate(90deg);
+    }
+  }
+}

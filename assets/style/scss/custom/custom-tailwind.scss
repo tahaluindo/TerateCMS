@@ -1,0 +1,13 @@
+.form-check-input {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #f17a84;
+  border-color: #f17a84;
+}

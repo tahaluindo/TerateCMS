@@ -1,0 +1,12 @@
+
+.table-header {
+  max-height: 42px;
+  transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+  overflow: hidden;
+
+  &.open {
+    max-height: 9999px;
+    transition: max-height 0.5s ease-in-out;
+    overflow: visible;
+  }
+}

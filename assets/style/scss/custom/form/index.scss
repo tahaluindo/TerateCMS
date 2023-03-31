@@ -1,0 +1,14 @@
+input[disabled] {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+input[disabled]::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+input[readonly] {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  color: #9ca3af;
+}
